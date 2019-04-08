@@ -1,0 +1,50 @@
+package frc.robot.helpers;
+
+import edu.wpi.first.wpilibj.DoubleSolenoid;
+
+/**
+ * The RobotConstants class is used for setting the constants used by the robot for it to do
+ * calculations. The values here are mostly used for autonomous, but the robot might also use them
+ * for other calculations as well.
+ */
+public class Constants {
+  /**
+   * Diameter of robot wheels in inches.
+   */
+  public static final double DIAMETER_OF_WHEEL = 8.0d;
+
+  /**
+   * Circumference of the wheel in inches.
+   */
+  public static final double CIRCUMFERENCE_OF_WHEEL = DIAMETER_OF_WHEEL * Math.PI;
+
+  /**
+   * Width of the robot.
+   */
+  public static final double ROBOT_WIDTH = 36.5d;
+
+  /**
+   * kP value used for correcting the robot's drift when driving straight.
+   */
+  public static final double GYRO_CORRECTION_KP = 0.04d;
+
+  /**
+   * SmartDashboard key for maximum robot speed.
+   */
+  public static final String MAX_SPEED_KEY = "Maximum Robot Speed";
+
+  /**
+   * SmartDashboard key for minimum robot speed.
+   */
+  public static final String MIN_SPEED_KEY = "Minimum Robot Speed";
+
+  /**
+   * Pneumatics solenoid value for high gear.
+   */
+  public static final DoubleSolenoid.Value HIGH_GEAR = DoubleSolenoid.Value.kForward;
+
+  /**
+   * Pneumatics solenoid value for low gear.
+   */
+  public static final DoubleSolenoid.Value LOW_GEAR = DoubleSolenoid.Value.kReverse;
+}

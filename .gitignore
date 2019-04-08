@@ -1,0 +1,22 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Gradle
+.gradle/
+
+# Intellij IDEA
+*.iml
+.idea/
+
+# Outputs
+bin/
+out/
+build/
+
+# Mac Garbage
+.DS_Store
+
+# VSCode
+.vscode/
