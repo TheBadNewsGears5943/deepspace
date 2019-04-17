@@ -15,10 +15,11 @@ public class IntakeCommand extends Command {
 
   @Override
   protected void execute() {
-    IntakeSubsystem.getInstance()
-        .operateIntake(OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) != 0
-            ? -OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) * 0.5d
-            : OperatorInterface.xbox.getRawAxis(Map.INTAKE_OUT_AXIS) * 0.5d);
+    IntakeSubsystem.getInstance().operateIntake(
+        OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) != 0
+          ? -OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) * 0.5d
+          : OperatorInterface.xbox.getRawAxis(Map.INTAKE_OUT_AXIS) * 0.5d
+    );
   }
 
   @Override

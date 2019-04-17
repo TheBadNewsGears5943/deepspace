@@ -33,8 +33,10 @@ public class Robot extends TimedRobot {
     PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
     PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
     SmartDashboard.putString("Current Gear",
-        (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) ? "High"
-            : "Low");
+        (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) 
+        ? "High"
+        : "Low"
+    );
   }
 
   /**
@@ -45,7 +47,6 @@ public class Robot extends TimedRobot {
     NetworkTableInstance.getDefault().getEntry("/ChickenVision/Driver").setBoolean(true);
     SmartDashboard.putString("Driving Direction", "Forward");
     DriveSubsystem.getInstance().setDirection(true);
-    System.out.println();
 
     if (teleop != null) {
       teleop.start();

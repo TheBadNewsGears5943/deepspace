@@ -10,7 +10,6 @@ public class ElevatorSubsystem extends Subsystem {
   private static ElevatorSubsystem instance = new ElevatorSubsystem();
 
   private final WPI_TalonSRX elevatorMotor = new WPI_TalonSRX(Map.ELEVATOR_MOTOR_CAN);
-  // private final WPI_VictorSPX elevatorMotor = new WPI_VictorSPX(Map.ELEVATOR_MOTOR_CAN);
 
   /**
    * Operates the elevator.
