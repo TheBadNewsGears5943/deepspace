@@ -15,8 +15,9 @@ public class ElevatorCommand extends Command {
   protected void execute() {
     ElevatorSubsystem.getInstance().operateElevator(
         !Utils.range(OperatorInterface.xbox.getRawAxis(Map.ELEVATOR_FAST_AXIS), -0.1d, 0.1d)
-            ? OperatorInterface.xbox.getRawAxis(Map.ELEVATOR_FAST_AXIS) * 1.0d
-            : OperatorInterface.xbox.getRawAxis(Map.ELEVATOR_SLOW_AXIS) * 0.2d);
+          ? OperatorInterface.xbox.getRawAxis(Map.ELEVATOR_FAST_AXIS) * 1.0d
+          : OperatorInterface.xbox.getRawAxis(Map.ELEVATOR_SLOW_AXIS) * 0.2d
+    );
   }
 
   @Override

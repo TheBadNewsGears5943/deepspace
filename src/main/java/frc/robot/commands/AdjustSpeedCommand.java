@@ -24,7 +24,7 @@ public class AdjustSpeedCommand extends Command {
 
     speed = Utils.clamp(speed, 0, 10);
 
-    SmartDashboard.putNumber("Power Slider", speed / 10d);
+    SmartDashboard.putNumber("Power Slider", speed / 10.0d);
   }
 
   @Override

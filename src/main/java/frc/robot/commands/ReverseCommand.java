@@ -16,7 +16,10 @@ public class ReverseCommand extends Command {
     nt.setString(nt.getString("Back").equals("Front") ? "Back" : "Front");
     DriveSubsystem.getInstance().setDirection(nt.getString("Front").equals("Front"));
     SmartDashboard.putString("Driving Direction",
-        nt.getString("Front").equals("Front") ? "Forward" : "Backward");
+        nt.getString("Front").equals("Front") 
+          ? "Forward" 
+          : "Backward"
+    );
   }
 
   @Override
