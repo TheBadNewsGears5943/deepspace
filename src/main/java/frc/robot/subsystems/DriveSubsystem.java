@@ -35,6 +35,7 @@ public class DriveSubsystem extends Subsystem {
   private final AHRS gyro = new AHRS(SPI.Port.kMXP);
 
   private int driveDirection = 1;
+  private double turningMultiplier = 1.0d;
 
   /**
    * Drives the robot using the given parameters.
@@ -68,10 +69,29 @@ public class DriveSubsystem extends Subsystem {
   /**
    * Gets the direction the robot is driving.
    *
-   * @return driveDirection
+   * @return The direction the robot is driving, 1.0d for forward, -1.0d for 
+   *     backwards
    */
   public int getDirection() {
     return driveDirection;
+  }
+
+  /**
+   * Sets the throttle used when turning the robot.
+   * 
+   * @param turningMultiplier The amount to throttle turning by
+   */
+  public void setTurningThrottle(double turningMultiplier) {
+    this.turningMultiplier = turningMultiplier;
+  }
+
+  /**
+   * Gets the throttle used when turning the robot.
+   * 
+   * @return The amount to throttle turning by
+   */
+  public double getTurningThrottle() {
+    return turningMultiplier;
   }
 
   /**
@@ -109,7 +129,7 @@ public class DriveSubsystem extends Subsystem {
   }
 
   /**
-   * Reset the front motor of the specified {@code side}.
+   * Reset the front motor of the specified {@link RobotSide}.
    *
    * @param side Side of the robot to reset the front motor of
    */
@@ -135,7 +155,7 @@ public class DriveSubsystem extends Subsystem {
   }
 
   /**
-   * Initialize the front motor of the specified {@code side}.
+   * Initialize the front motor of the specified {@link RobotSide}.
    *
    * @param side Side of robot to check encoder for
    */
@@ -164,10 +184,10 @@ public class DriveSubsystem extends Subsystem {
   }
 
   /**
-   * Get the current amount of inches encoders have tracked for a certain {@code side}.
+   * Get the current amount of inches encoders have tracked for a certain {@link RobotSide}.
    *
    * @param side Side of a robot
-   * @return The amount of inches the encoder has tracked on the specified {@code side}
+   * @return The amount of inches the encoder has tracked on the specified {@link RobotSide}
    */
   public double getEncoderInches(RobotSide side) {
     return ticks2Inches(getEncoderValue(side));
