@@ -20,6 +20,7 @@ public class TeleopCommand extends Command {
 
   @Override
   protected void execute() {
+    // Calculate the speed multiplier using the power slider
     double speedMultiplier = (SmartDashboard.getNumber("Power Slider", 0.5d)
         * (DriveSubsystem.getMaxSpeed() - DriveSubsystem.getMinSpeed())) 
         + DriveSubsystem.getMinSpeed();
@@ -44,6 +45,7 @@ public class TeleopCommand extends Command {
             mainStick.getX() 
             * speedMultiplier 
             * 1.1d
+            * DriveSubsystem.getInstance().getTurningThrottle()
         );
 
         resetGyro = true;
@@ -66,7 +68,7 @@ public class TeleopCommand extends Command {
 
         resetGyro = false;
       }
-      
+    
     // If the power slider is zero, or the joystick isn't being moved
     } else {
       DriveSubsystem.getInstance().drive(0.0d, 0.0d);

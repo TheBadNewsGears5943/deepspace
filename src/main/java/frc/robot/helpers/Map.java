@@ -134,5 +134,13 @@ public class Map {
    */
   public static final int TOGGLE_GYROSCOPE_BUTTON = 3;
 
+  /**
+   * Button for operating the robot with vision assist.
+   */
   public static final int VISION_ASSIST_BUTTON = 1;
+
+  /**
+   * Button for operating the robot with fine turning.
+   */
+  public static final int FINE_TURNING_BUTTON = 16;
 }

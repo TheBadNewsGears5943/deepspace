@@ -29,6 +29,11 @@ public class Constants {
   public static final double GYRO_CORRECTION_KP = 0.04d;
 
   /**
+   * Value used when throttling the turning speed of the robot.
+   */
+  public static final double TURNING_THROTTLE = 0.5d;
+
+  /**
    * SmartDashboard key for maximum robot speed.
    */
   public static final String MAX_SPEED_KEY = "Maximum Robot Speed";

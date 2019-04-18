@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.AdjustSpeedCommand;
 import frc.robot.commands.ChangeGearCommand;
+import frc.robot.commands.FineTurningCommand;
 import frc.robot.commands.PanelClutchCommand;
 import frc.robot.commands.ReverseCommand;
 import frc.robot.commands.ToggleGyroscopeCommand;
@@ -67,14 +68,25 @@ public class OperatorInterface {
   private static final Button toggleGyroscope =
       new JoystickButton(mainStick, Map.TOGGLE_GYROSCOPE_BUTTON);
 
+  /**
+   * Button for operating the robot with vision control.
+   */
   private static final Button visionAssist =
       new JoystickButton(mainStick, Map.VISION_ASSIST_BUTTON);
+
+  /**
+   * Button for throttling turning.
+   */
+  private static final Button fineTurningButton = 
+      new JoystickButton(mainStick, Map.FINE_TURNING_BUTTON);
 
   /**
    * Method used to initialize the commands controlled by the joystick buttons.
    */
   public static void initialize() {
     reverseDirection.whenPressed(new ReverseCommand());
+
+    fineTurningButton.whileHeld(new FineTurningCommand());
 
     gearShift.whenPressed(new ChangeGearCommand());
 
