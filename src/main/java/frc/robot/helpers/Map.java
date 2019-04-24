@@ -105,14 +105,14 @@ public class Map {
   public static final int ELEVATOR_FAST_AXIS = 1;
 
   /**
-   * Button for opening the ball intake mechanism.
+   * Button for opening the panel clutch mechanism.
    */
-  public static final int BALL_INTAKE_OPEN_BUTTON = 5;
+  public static final int PANEL_CLUTCH_OPEN_BUTTON = 5;
 
   /**
-   * Button for closing the ball intake mechanism.
+   * Button for closing the panel clutch mechanism.
    */
-  public static final int BALL_INTAKE_CLOSE_BUTTON = 6;
+  public static final int PANEL_CLUTCH_CLOSE_BUTTON = 6;
 
   /**
    * Button for switching the cameras.
