@@ -26,7 +26,6 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("Gyroscope Disabled", true);
     SmartDashboard.putNumber("Power Slider", 1.0d);
 
-
     PneumaticSubsystem.getInstance().compressor.setClosedLoopControl(true);
     PneumaticSubsystem.getInstance().compressor.start();
 

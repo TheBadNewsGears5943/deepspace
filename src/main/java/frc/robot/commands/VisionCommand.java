@@ -39,7 +39,6 @@ public class VisionCommand extends Command {
     var rotateSpeed = Utils.clamp(1.0d * tapeYaw, -0.35d, 0.35d);
     var forward = -mainStick.getY();
 
-
     if (mainStick.getRawButton(6) && !Utils.range(forward, -0.1d, 0.1d) && powerSliderDrive) {
       DriveSubsystem.getInstance().drive(forward * speedMultiplier, rotateSpeed);
       return;

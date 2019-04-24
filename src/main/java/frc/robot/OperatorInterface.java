@@ -39,16 +39,16 @@ public class OperatorInterface {
   private static final Button gearShift = new JoystickButton(mainStick, Map.SHIFT_BUTTON);
 
   /**
-   * Button for opening the ball intake mechanism.
+   * Button for opening the panel clutch mechanism.
    */
-  private static final Button openBallIntake =
-      new JoystickButton(xbox, Map.BALL_INTAKE_OPEN_BUTTON);
+  private static final Button openPanelClutch =
+      new JoystickButton(xbox, Map.PANEL_CLUTCH_OPEN_BUTTON);
 
   /**
-   * Button for closing the ball intake mechanism.
+   * Button for closing the panel clutch mechanism.
    */
-  private static final Button closeBallIntake =
-      new JoystickButton(xbox, Map.BALL_INTAKE_CLOSE_BUTTON);
+  private static final Button closePanelClutch =
+      new JoystickButton(xbox, Map.PANEL_CLUTCH_CLOSE_BUTTON);
 
   /**
    * Button for incrementing the speed.
@@ -90,9 +90,9 @@ public class OperatorInterface {
 
     gearShift.whenPressed(new ChangeGearCommand());
 
-    openBallIntake.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
+    openPanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
 
-    closeBallIntake.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Close));
+    closePanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Close));
 
     incrementSpeed.whenPressed(new AdjustSpeedCommand(true));
 
