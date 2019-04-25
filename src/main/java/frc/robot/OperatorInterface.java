@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import frc.robot.commands.AdjustSpeedCommand;
 import frc.robot.commands.ChangeGearCommand;
 import frc.robot.commands.FineTurningCommand;
+import frc.robot.commands.LiftCommand;
 import frc.robot.commands.PanelClutchCommand;
 import frc.robot.commands.ReverseCommand;
 import frc.robot.commands.ToggleGyroscopeCommand;
@@ -81,6 +82,12 @@ public class OperatorInterface {
       new JoystickButton(mainStick, Map.FINE_TURNING_BUTTON);
 
   /**
+   * Button for operating the lift piston.
+   */
+  private static final Button liftButton =
+      new JoystickButton(mainStick, Map.LIFT_BUTTON);
+
+  /**
    * Method used to initialize the commands controlled by the joystick buttons.
    */
   public static void initialize() {
@@ -89,6 +96,8 @@ public class OperatorInterface {
     fineTurningButton.whileHeld(new FineTurningCommand());
 
     gearShift.whenPressed(new ChangeGearCommand());
+
+    liftButton.whenPressed(new LiftCommand());
 
     openPanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
 

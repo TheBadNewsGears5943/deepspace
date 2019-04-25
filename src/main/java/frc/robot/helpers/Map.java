@@ -143,4 +143,9 @@ public class Map {
    * Button for operating the robot with fine turning.
    */
   public static final int FINE_TURNING_BUTTON = 16;
+
+  /**
+   * Button for operating the lift piston.
+   */
+  public static final int LIFT_BUTTON = 0;
 }

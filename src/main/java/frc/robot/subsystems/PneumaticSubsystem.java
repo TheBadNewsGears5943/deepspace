@@ -17,6 +17,8 @@ public class PneumaticSubsystem extends Subsystem {
 
   public final DoubleSolenoid panelClutch = new DoubleSolenoid(4, 5);
 
+  public final DoubleSolenoid liftMechanism = new DoubleSolenoid(6, 7);
+
   @Override
   protected void initDefaultCommand() {
 
