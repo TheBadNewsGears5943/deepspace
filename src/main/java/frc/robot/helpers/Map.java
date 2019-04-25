@@ -145,12 +145,22 @@ public class Map {
   public static final int FINE_TURNING_BUTTON = 16;
 
   /**
-   * POV button for extending the lift piston.
+   * POV button for extending the front lift piston.
    */
-  public static final int LIFT_UP_BUTTON = 0;
+  public static final int FRONT_LIFT_UP_BUTTON = 0;
 
   /**
-   * POV button for retracting the lift piston.
+   * POV button for retracting the front lift piston.
    */
-  public static final int LIFT_DOWN_BUTTON = 180;
+  public static final int FRONT_LIFT_DOWN_BUTTON = 180;
+
+  /**
+   * POV button for extending the rear lift piston.
+   */
+  public static final int REAR_LIFT_UP_BUTTON = 90;
+
+  /**
+   * POV button for retracting the rear lift piston.
+   */
+  public static final int REAR_LIFT_DOWN_BUTTON = 270;
 }

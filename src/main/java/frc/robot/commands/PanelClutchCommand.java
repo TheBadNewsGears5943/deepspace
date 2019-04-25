@@ -1,6 +1,6 @@
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+// import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.PneumaticSubsystem;
 
@@ -26,10 +26,10 @@ public class PanelClutchCommand extends Command {
   protected void execute() {
     switch (direction) {
       case Open:
-        PneumaticSubsystem.getInstance().panelClutch.set(Value.kForward);
+        // PneumaticSubsystem.getInstance().panelClutch.set(Value.kForward);
         break;
       case Close:
-        PneumaticSubsystem.getInstance().panelClutch.set(Value.kReverse);
+        // PneumaticSubsystem.getInstance().panelClutch.set(Value.kReverse);
         break;
       default:
         break;

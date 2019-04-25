@@ -83,16 +83,28 @@ public class OperatorInterface {
       new JoystickButton(mainStick, Map.FINE_TURNING_BUTTON);
 
   /**
-   * Button for extending the lift piston.
+   * Button for extending the front lift piston.
    */
-  private static final POVButton liftUpButton =
-      new POVButton(xbox, Map.LIFT_UP_BUTTON);
+  private static final POVButton frontLiftUpButton =
+      new POVButton(xbox, Map.FRONT_LIFT_UP_BUTTON);
 
   /**
-   * Button for retracting the lift piston.
+   * Button for retracting the front lift piston.
    */
-  private static final POVButton liftDownButton =
-      new POVButton(xbox, Map.LIFT_DOWN_BUTTON);
+  private static final POVButton frontLiftDownButton =
+      new POVButton(xbox, Map.FRONT_LIFT_DOWN_BUTTON);
+
+  /**
+   * Button for extending the rear lift piston.
+   */
+  private static final POVButton rearLiftUpButton =
+      new POVButton(xbox, Map.REAR_LIFT_UP_BUTTON);
+
+  /**
+   * Button for retracting the rear lift piston.
+   */
+  private static final POVButton rearLiftDownButton =
+      new POVButton(xbox, Map.REAR_LIFT_DOWN_BUTTON);
 
   /**
    * Method used to initialize the commands controlled by the joystick buttons.
@@ -104,9 +116,13 @@ public class OperatorInterface {
 
     gearShift.whenPressed(new ChangeGearCommand());
 
-    liftUpButton.whenPressed(new LiftCommand(true));
+    frontLiftUpButton.whenPressed(new LiftCommand(true, true));
 
-    liftDownButton.whenPressed(new LiftCommand(false));
+    frontLiftDownButton.whenPressed(new LiftCommand(false, true));
+
+    rearLiftUpButton.whenPressed(new LiftCommand(true, false));
+
+    rearLiftDownButton.whenPressed(new LiftCommand(false, false));
 
     openPanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
 

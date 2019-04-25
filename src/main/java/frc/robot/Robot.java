@@ -2,6 +2,7 @@ package frc.robot;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.ElevatorCommand;
@@ -31,6 +32,9 @@ public class Robot extends TimedRobot {
 
     PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
     PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
+    PneumaticSubsystem.getInstance().frontLiftMechanism.set(Value.kReverse);
+    PneumaticSubsystem.getInstance().rearLiftMechanism.set(Value.kReverse);
+    
     SmartDashboard.putString("Current Gear",
         (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) 
         ? "High"
