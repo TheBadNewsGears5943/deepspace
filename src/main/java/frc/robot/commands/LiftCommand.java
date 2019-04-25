@@ -1,24 +1,32 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Command;
-import frc.robot.helpers.Constants;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 /**
  * Toggles the position of the piston.
  */
 public class LiftCommand extends Command {
-  public LiftCommand() {
+  private boolean extendState = false;
+
+  /**
+   * Command for operating the lift mechanism.
+   * 
+   * @param extendState If true, the piston will extend, if false, the piston will retract
+   */
+  public LiftCommand(boolean extendState) {
     requires(PneumaticSubsystem.getInstance());
+
+    this.extendState = extendState;
   }
 
   @Override
   protected void execute() {
-    var currentGear = PneumaticSubsystem.getInstance().liftMechanism.get();
     PneumaticSubsystem.getInstance().liftMechanism.set(
-        currentGear == Constants.HIGH_GEAR 
-          ? Constants.LOW_GEAR 
-          : Constants.HIGH_GEAR
+        extendState 
+          ? Value.kForward
+          : Value.kReverse
     );
   }
 

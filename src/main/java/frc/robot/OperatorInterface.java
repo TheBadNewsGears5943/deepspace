@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.AdjustSpeedCommand;
 import frc.robot.commands.ChangeGearCommand;
 import frc.robot.commands.FineTurningCommand;
@@ -82,10 +83,16 @@ public class OperatorInterface {
       new JoystickButton(mainStick, Map.FINE_TURNING_BUTTON);
 
   /**
-   * Button for operating the lift piston.
+   * Button for extending the lift piston.
    */
-  private static final Button liftButton =
-      new JoystickButton(mainStick, Map.LIFT_BUTTON);
+  private static final POVButton liftUpButton =
+      new POVButton(xbox, Map.LIFT_UP_BUTTON);
+
+  /**
+   * Button for retracting the lift piston.
+   */
+  private static final POVButton liftDownButton =
+      new POVButton(xbox, Map.LIFT_DOWN_BUTTON);
 
   /**
    * Method used to initialize the commands controlled by the joystick buttons.
@@ -97,7 +104,9 @@ public class OperatorInterface {
 
     gearShift.whenPressed(new ChangeGearCommand());
 
-    liftButton.whenPressed(new LiftCommand());
+    liftUpButton.whenPressed(new LiftCommand(true));
+
+    liftDownButton.whenPressed(new LiftCommand(false));
 
     openPanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
 
