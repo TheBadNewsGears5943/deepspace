@@ -7,7 +7,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.AdjustSpeedCommand;
 import frc.robot.commands.ChangeGearCommand;
-// import frc.robot.commands.CompressorCommand;
 import frc.robot.commands.FineTurningCommand;
 import frc.robot.commands.LiftCommand;
 import frc.robot.commands.PanelClutchCommand;
@@ -108,12 +107,6 @@ public class OperatorInterface {
       new POVButton(xbox, Map.REAR_LIFT_DOWN_BUTTON);
 
   /**
-   * Button for disabling the compressor.
-   */
-//   private static final Button compressorDisableButton =
-//       new JoystickButton(xbox, Map.COMPRESSOR_DISABLE_BUTTON);
-
-  /**
    * Method used to initialize the commands controlled by the joystick buttons.
    */
   public static void initialize() {
@@ -142,7 +135,5 @@ public class OperatorInterface {
     toggleGyroscope.whenPressed(new ToggleGyroscopeCommand());
 
     visionAssist.whileHeld(new VisionCommand());
-
-    // compressorDisableButton.whenPressed(new CompressorCommand());
   }
 }

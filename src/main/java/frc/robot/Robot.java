@@ -1,10 +1,12 @@
 package frc.robot;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.CompressorCommand;
 import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.TeleopCommand;
@@ -16,6 +18,7 @@ public class Robot extends TimedRobot {
   TeleopCommand teleop = new TeleopCommand();
   IntakeCommand intake = new IntakeCommand();
   ElevatorCommand elevator = new ElevatorCommand();
+  CompressorCommand compressorCommand = new CompressorCommand();
 
   /**
    * Code for when the robot is first being powered on goes here.
@@ -88,6 +91,11 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     Scheduler.getInstance().run();
+
+    // If the roboRIO is browning out, stop the compressor for six seconds
+    if (RobotController.isBrownedOut() && compressorCommand != null && !compressorCommand.isRunning()) {
+      compressorCommand.start();
+    }
   }
 
   /**
