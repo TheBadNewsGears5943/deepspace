@@ -163,4 +163,9 @@ public class Map {
    * POV button for retracting the rear lift piston.
    */
   public static final int REAR_LIFT_DOWN_BUTTON = 270;
+
+  /**
+   * Button for disabling the compressor.
+   */
+  public static final int COMPRESSOR_DISABLE_BUTTON = 1;
 }
