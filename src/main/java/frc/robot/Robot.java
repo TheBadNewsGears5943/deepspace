@@ -43,6 +43,8 @@ public class Robot extends TimedRobot {
         ? "High"
         : "Low"
     );
+
+    SmartDashboard.putBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
   }
 
   /**
@@ -92,8 +94,16 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     Scheduler.getInstance().run();
 
+    // Get if the SmartDashboard checkbox for turning off the compressor during a brownout is pressed
+    var compressorBrownoutPoweroffConfigured = SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
+
     // If the roboRIO is browning out, stop the compressor for six seconds
-    if (RobotController.isBrownedOut() && compressorCommand != null && !compressorCommand.isRunning()) {
+    if (
+      compressorBrownoutPoweroffConfigured
+      && RobotController.isBrownedOut()
+      && compressorCommand != null 
+      && !compressorCommand.isRunning()
+    ) {
       compressorCommand.start();
     }
   }
