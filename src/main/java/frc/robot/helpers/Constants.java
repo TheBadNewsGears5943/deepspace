@@ -45,7 +45,7 @@ public class Constants {
 
   /**
    * SmartDashboard key for configuring automatically turning the compressor on or off during a 
-   * brownout
+   * brownout.
    */
   public static final String AUTO_COMPRESSOR_BROWNOUT_KEY = "Poweroff compressor during brownout";
 

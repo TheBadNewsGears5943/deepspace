@@ -15,8 +15,8 @@ public class LiftCommand extends Command {
    * Command for operating the lift mechanism.
    * 
    * @param extendState If true, the piston will extend, if false, the piston will retract
-   * @param frontPiston If true, the front piston will be actuated, if false, the rear piston will be 
-   *        actuated
+   * @param frontPiston If true, the front piston will be actuated, if false, the rear piston will 
+   *                    be actuated
    */
   public LiftCommand(boolean extendState, boolean frontPiston) {
     requires(PneumaticSubsystem.getInstance());
@@ -30,17 +30,16 @@ public class LiftCommand extends Command {
     // If we're using the front piston
     if (frontPiston) {
       PneumaticSubsystem.getInstance().frontLiftMechanism.set(
-        extendState 
-          ? Value.kForward
-          : Value.kReverse
+          extendState 
+            ? Value.kForward
+            : Value.kReverse
       );
-    }
     // If we're using the rear piston
-    else {
+    } else {
       PneumaticSubsystem.getInstance().rearLiftMechanism.set(
-        extendState 
-          ? Value.kForward
-          : Value.kReverse
+          extendState 
+            ? Value.kForward
+            : Value.kReverse
       );
     }
   }

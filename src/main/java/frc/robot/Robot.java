@@ -1,9 +1,9 @@
 package frc.robot;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.commands.CompressorCommand;
@@ -94,15 +94,19 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     Scheduler.getInstance().run();
 
-    // Get if the SmartDashboard checkbox for turning off the compressor during a brownout is pressed
-    var compressorBrownoutPoweroffConfigured = SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
+    /**
+     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
+     * pressed.
+     */
+    var compressorBrownoutPoweroffConfigured = 
+        SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
 
     // If the roboRIO is browning out, stop the compressor for six seconds
     if (
-      compressorBrownoutPoweroffConfigured
-      && RobotController.isBrownedOut()
-      && compressorCommand != null 
-      && !compressorCommand.isRunning()
+        compressorBrownoutPoweroffConfigured
+        && RobotController.isBrownedOut()
+        && compressorCommand != null 
+        && !compressorCommand.isRunning()
     ) {
       compressorCommand.start();
     }
