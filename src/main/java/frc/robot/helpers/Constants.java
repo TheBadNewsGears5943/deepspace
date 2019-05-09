@@ -58,4 +58,9 @@ public class Constants {
    * Pneumatics solenoid value for low gear.
    */
   public static final DoubleSolenoid.Value LOW_GEAR = DoubleSolenoid.Value.kReverse;
+
+  /**
+   * The amount of time the compressor will stop after a brownout.
+   */
+  public static final double COMPRESSOR_BROWNOUT_TIME = 6.0d;
 }

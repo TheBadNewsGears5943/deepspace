@@ -1,11 +1,12 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.helpers.Constants;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 public class CompressorCommand extends Command {
   public CompressorCommand() {
-    setTimeout(6.0d);
+    setTimeout(Constants.COMPRESSOR_BROWNOUT_TIME);
   }
 
   @Override
