@@ -1,9 +1,12 @@
 package frc.robot;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
+import edu.wpi.first.wpilibj.RobotController;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import frc.robot.commands.CompressorCommand;
 import frc.robot.commands.ElevatorCommand;
 import frc.robot.commands.IntakeCommand;
 import frc.robot.commands.TeleopCommand;
@@ -15,6 +18,7 @@ public class Robot extends TimedRobot {
   TeleopCommand teleop = new TeleopCommand();
   IntakeCommand intake = new IntakeCommand();
   ElevatorCommand elevator = new ElevatorCommand();
+  CompressorCommand compressorCommand = new CompressorCommand();
 
   /**
    * Code for when the robot is first being powered on goes here.
@@ -31,11 +35,16 @@ public class Robot extends TimedRobot {
 
     PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
     PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
+    PneumaticSubsystem.getInstance().frontLiftMechanism.set(Value.kReverse);
+    PneumaticSubsystem.getInstance().rearLiftMechanism.set(Value.kReverse);
+    
     SmartDashboard.putString("Current Gear",
         (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) 
         ? "High"
         : "Low"
     );
+
+    SmartDashboard.putBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
   }
 
   /**
@@ -84,6 +93,23 @@ public class Robot extends TimedRobot {
   @Override
   public void robotPeriodic() {
     Scheduler.getInstance().run();
+
+    /**
+     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
+     * pressed.
+     */
+    var compressorBrownoutPoweroffConfigured = 
+        SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
+
+    // If the roboRIO is browning out, stop the compressor for six seconds
+    if (
+        compressorBrownoutPoweroffConfigured
+        && RobotController.isBrownedOut()
+        && compressorCommand != null 
+        && !compressorCommand.isRunning()
+    ) {
+      compressorCommand.start();
+    }
   }
 
   /**

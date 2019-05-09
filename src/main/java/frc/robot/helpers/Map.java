@@ -143,4 +143,59 @@ public class Map {
    * Button for operating the robot with fine turning.
    */
   public static final int FINE_TURNING_BUTTON = 16;
+
+  /**
+   * POV button for extending the front lift piston.
+   */
+  public static final int FRONT_LIFT_UP_BUTTON = 0;
+
+  /**
+   * POV button for retracting the front lift piston.
+   */
+  public static final int FRONT_LIFT_DOWN_BUTTON = 180;
+
+  /**
+   * POV button for extending the rear lift piston.
+   */
+  public static final int REAR_LIFT_UP_BUTTON = 90;
+
+  /**
+   * POV button for retracting the rear lift piston.
+   */
+  public static final int REAR_LIFT_DOWN_BUTTON = 270;
+
+  /**
+   * Forward channel ID for the front lift mechanism.
+   */
+  public static final int FRONT_LIFT_EXTENDED = 6;
+
+  /**
+   * Reverse channel ID for the front lift mechanism.
+   */
+  public static final int FRONT_LIFT_REVERSED = 7;
+
+  /**
+   * Forward channel ID for the rear lift mechanism.
+   */
+  public static final int REAR_LIFT_EXTENDED = 4;
+
+  /**
+   * Reverse channel ID for the rear lift mechanism.
+   */
+  public static final int REAR_LIFT_REVERSED = 5;
+
+  /**
+   * CAN ID for the second PCM.
+   */
+  public static final int SECOND_PCM_CAN = 20;
+
+  /**
+   * Forward channel ID for the panel clutch mechanism.
+   */
+  public static final int PANEL_CLUTCH_EXTENDED = 0;
+
+  /**
+   * Reverse channel ID for the panel clutch mechanism.
+   */
+  public static final int PANEL_CLUTCH_REVERSED = 1;
 }

@@ -15,7 +15,13 @@ public class PneumaticSubsystem extends Subsystem {
   public final DoubleSolenoid rightGearBox =
       new DoubleSolenoid(Map.RIGHT_GEARBOX_EXTENDED, Map.RIGHT_GEARBOX_REVERSED);
 
-  public final DoubleSolenoid panelClutch = new DoubleSolenoid(4, 5);
+  public final DoubleSolenoid panelClutch = 
+      new DoubleSolenoid(Map.SECOND_PCM_CAN, Map.PANEL_CLUTCH_EXTENDED, Map.PANEL_CLUTCH_REVERSED);
+
+  public final DoubleSolenoid frontLiftMechanism = 
+      new DoubleSolenoid(Map.FRONT_LIFT_EXTENDED, Map.FRONT_LIFT_REVERSED);
+  public final DoubleSolenoid rearLiftMechanism = 
+      new DoubleSolenoid(Map.REAR_LIFT_EXTENDED, Map.REAR_LIFT_REVERSED);
 
   @Override
   protected void initDefaultCommand() {

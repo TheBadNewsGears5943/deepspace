@@ -44,6 +44,12 @@ public class Constants {
   public static final String MIN_SPEED_KEY = "Minimum Robot Speed";
 
   /**
+   * SmartDashboard key for configuring automatically turning the compressor on or off during a 
+   * brownout.
+   */
+  public static final String AUTO_COMPRESSOR_BROWNOUT_KEY = "Poweroff compressor during brownout";
+
+  /**
    * Pneumatics solenoid value for high gear.
    */
   public static final DoubleSolenoid.Value HIGH_GEAR = DoubleSolenoid.Value.kForward;
@@ -52,4 +58,9 @@ public class Constants {
    * Pneumatics solenoid value for low gear.
    */
   public static final DoubleSolenoid.Value LOW_GEAR = DoubleSolenoid.Value.kReverse;
+
+  /**
+   * The amount of time the compressor will stop after a brownout.
+   */
+  public static final double COMPRESSOR_BROWNOUT_TIME = 6.0d;
 }

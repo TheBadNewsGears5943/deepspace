@@ -4,9 +4,11 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.AdjustSpeedCommand;
 import frc.robot.commands.ChangeGearCommand;
 import frc.robot.commands.FineTurningCommand;
+import frc.robot.commands.LiftCommand;
 import frc.robot.commands.PanelClutchCommand;
 import frc.robot.commands.ReverseCommand;
 import frc.robot.commands.ToggleGyroscopeCommand;
@@ -81,6 +83,30 @@ public class OperatorInterface {
       new JoystickButton(mainStick, Map.FINE_TURNING_BUTTON);
 
   /**
+   * Button for extending the front lift piston.
+   */
+  private static final POVButton frontLiftUpButton =
+      new POVButton(xbox, Map.FRONT_LIFT_UP_BUTTON);
+
+  /**
+   * Button for retracting the front lift piston.
+   */
+  private static final POVButton frontLiftDownButton =
+      new POVButton(xbox, Map.FRONT_LIFT_DOWN_BUTTON);
+
+  /**
+   * Button for extending the rear lift piston.
+   */
+  private static final POVButton rearLiftUpButton =
+      new POVButton(xbox, Map.REAR_LIFT_UP_BUTTON);
+
+  /**
+   * Button for retracting the rear lift piston.
+   */
+  private static final POVButton rearLiftDownButton =
+      new POVButton(xbox, Map.REAR_LIFT_DOWN_BUTTON);
+
+  /**
    * Method used to initialize the commands controlled by the joystick buttons.
    */
   public static void initialize() {
@@ -89,6 +115,14 @@ public class OperatorInterface {
     fineTurningButton.whileHeld(new FineTurningCommand());
 
     gearShift.whenPressed(new ChangeGearCommand());
+
+    frontLiftUpButton.whenPressed(new LiftCommand(true, true));
+
+    frontLiftDownButton.whenPressed(new LiftCommand(false, true));
+
+    rearLiftUpButton.whenPressed(new LiftCommand(true, false));
+
+    rearLiftDownButton.whenPressed(new LiftCommand(false, false));
 
     openPanelClutch.whenPressed(new PanelClutchCommand(PanelClutchCommand.Direction.Open));
 
