@@ -187,7 +187,7 @@ public class Map {
   /**
    * CAN ID for the second PCM.
    */
-  public static final int SECOND_PCM_CAN = 20;
+  public static final int SECOND_PCM_CAN = 8;
 
   /**
    * Forward channel ID for the panel clutch mechanism.
