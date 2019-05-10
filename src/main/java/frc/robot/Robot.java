@@ -35,8 +35,11 @@ public class Robot extends TimedRobot {
 
     PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
     PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
+
     PneumaticSubsystem.getInstance().frontLiftMechanism.set(Value.kReverse);
     PneumaticSubsystem.getInstance().rearLiftMechanism.set(Value.kReverse);
+
+    PneumaticSubsystem.getInstance().panelClutch.set(Value.kReverse);
     
     SmartDashboard.putString("Current Gear",
         (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) 
