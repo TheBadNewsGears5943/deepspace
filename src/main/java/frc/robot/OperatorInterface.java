@@ -5,14 +5,14 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
-import frc.robot.commands.AdjustSpeedCommand;
-import frc.robot.commands.ChangeGearCommand;
-import frc.robot.commands.FineTurningCommand;
-import frc.robot.commands.LiftCommand;
-import frc.robot.commands.PanelClutchCommand;
-import frc.robot.commands.ReverseCommand;
-import frc.robot.commands.ToggleGyroscopeCommand;
-import frc.robot.commands.VisionCommand;
+import frc.robot.commands.misc.AdjustSpeedCommand;
+import frc.robot.commands.teleop.ChangeGearCommand;
+import frc.robot.commands.teleop.FineTurningCommand;
+import frc.robot.commands.teleop.LiftCommand;
+import frc.robot.commands.teleop.PanelClutchCommand;
+import frc.robot.commands.teleop.ReverseCommand;
+import frc.robot.commands.teleop.ToggleGyroscopeCommand;
+import frc.robot.commands.teleop.VisionCommand;
 import frc.robot.helpers.Map;
 
 /**

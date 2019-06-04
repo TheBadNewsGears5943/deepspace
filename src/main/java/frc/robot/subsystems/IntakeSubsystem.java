@@ -2,7 +2,7 @@ package frc.robot.subsystems;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import frc.robot.commands.IntakeCommand;
+import frc.robot.commands.teleop.IntakeCommand;
 import frc.robot.helpers.Map;
 
 public class IntakeSubsystem extends Subsystem {
