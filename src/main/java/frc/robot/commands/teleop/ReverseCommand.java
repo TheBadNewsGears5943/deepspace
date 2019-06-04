@@ -1,4 +1,4 @@
-package frc.robot.commands;
+package frc.robot.commands.teleop;
 
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.command.Command;

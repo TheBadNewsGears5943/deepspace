@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import frc.robot.commands.TeleopCommand;
+import frc.robot.commands.teleop.TeleopCommand;
 import frc.robot.helpers.Constants;
 import frc.robot.helpers.Map;
 import frc.robot.helpers.Utils.RobotSide;
