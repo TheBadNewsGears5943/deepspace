@@ -7,37 +7,37 @@ package frc.robot.helpers;
  */
 public class Map {
   /**
-   * PCM CAN index, set using the Phoenix Tuner software.
+   * PCM CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int PCM_CAN_INDEX = 0;
 
   /**
-   * Front left motor CAN index, set using the Phoenix Tuner software.
+   * Front left motor CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int FRONT_LEFT_MOTOR_CAN = 2;
 
   /**
-   * Rear left motor CAN index, set using the Phoenix Tuner software.
+   * Rear left motor CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int REAR_LEFT_MOTOR_CAN = 3;
 
   /**
-   * Rear right motor CAN index, set using the Phoenix Tuner software.
+   * Rear right motor CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int REAR_RIGHT_MOTOR_CAN = 5;
 
   /**
-   * Front right motor CAN index, set using the Phoenix Tuner software.
+   * Front right motor CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int FRONT_RIGHT_MOTOR_CAN = 6;
 
   /**
-   * Intake CAN index, set using the Phoenix Tuner software.
+   * Intake CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int INTAKE_MOTOR_CAN = 4;
 
   /**
-   * Elevator CAN index, set using the Phoenix Tuner software.
+   * Elevator CAN index, setGearBox using the Phoenix Tuner software.
    */
   public static final int ELEVATOR_MOTOR_CAN = 7;
 

@@ -2,7 +2,9 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
+import edu.wpi.first.wpilibj.DoubleSolenoid.Value;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.helpers.Constants;
 import frc.robot.helpers.Map;
 
 public class PneumaticSubsystem extends Subsystem {
@@ -24,8 +26,19 @@ public class PneumaticSubsystem extends Subsystem {
       new DoubleSolenoid(Map.REAR_LIFT_EXTENDED, Map.REAR_LIFT_REVERSED);
 
   @Override
-  protected void initDefaultCommand() {
+  protected void initDefaultCommand() {}
 
+  public boolean inHighGear() {
+    return leftGearBox.get() == Constants.HIGH_GEAR;
+  }
+
+  public boolean inLowGear() {
+    return leftGearBox.get() == Constants.LOW_GEAR;
+  }
+
+  public void setGearBox(Value gear) {
+    leftGearBox.set(gear);
+    rightGearBox.set(gear);
   }
 
   public static PneumaticSubsystem getInstance() {

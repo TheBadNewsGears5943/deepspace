@@ -15,17 +15,16 @@ public class ChangeGearCommand extends Command {
 
   @Override
   protected void execute() {
-    var currentGear = PneumaticSubsystem.getInstance().leftGearBox.get();
+    var pneumatics = PneumaticSubsystem.getInstance();
+    var currentGear = pneumatics.leftGearBox.get();
 
     if (currentGear == Constants.HIGH_GEAR) {
-      PneumaticSubsystem.getInstance().leftGearBox.set(Constants.LOW_GEAR);
-      PneumaticSubsystem.getInstance().rightGearBox.set(Constants.LOW_GEAR);
+      pneumatics.setGearBox(Constants.LOW_GEAR);
     } else {
-      PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
-      PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
+      pneumatics.setGearBox(Constants.HIGH_GEAR);
     }
 
-    SmartDashboard.putString("Current Gear", (currentGear == Constants.HIGH_GEAR) ? "High" : "Low");
+    SmartDashboard.putString("Current Gear", pneumatics.inHighGear() ? "High" : "Low");
   }
 
   @Override

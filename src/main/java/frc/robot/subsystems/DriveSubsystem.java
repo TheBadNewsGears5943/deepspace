@@ -231,7 +231,7 @@ public class DriveSubsystem extends Subsystem {
   }
 
   /**
-   * Gets the maximum speed the robot is set to move at.
+   * Gets the maximum speed the robot is setGearBox to move at.
    *
    * @return Maximum Robot Speed
    */
@@ -240,7 +240,7 @@ public class DriveSubsystem extends Subsystem {
   }
 
   /**
-   * Gets the minimum speed the robot is set to move at.
+   * Gets the minimum speed the robot is setGearBox to move at.
    *
    * @return Minimum Robot Speed
    */

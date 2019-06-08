@@ -43,7 +43,7 @@ public class Robot extends TimedRobot {
     pneumatics.panelClutch.set(Value.kReverse);
 
     SmartDashboard.putString("Current Gear",
-        (pneumatics.leftGearBox.get() == Constants.HIGH_GEAR)
+        (pneumatics.inHighGear())
             ? "High"
             : "Low"
     );
@@ -98,7 +98,7 @@ public class Robot extends TimedRobot {
   public void robotPeriodic() {
     Scheduler.getInstance().run();
 
-    /**
+    /*
      * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
      * pressed.
      */
