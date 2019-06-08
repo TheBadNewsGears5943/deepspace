@@ -12,7 +12,7 @@ public class FineTurningCommand extends Command {
 
   @Override
   protected void interrupted() {
-    DriveSubsystem.getInstance().setTurningThrottle(1.0d);
+    DriveSubsystem.getInstance().setTurningThrottle(Constants.TURNING_FULL);
   }
 
   @Override

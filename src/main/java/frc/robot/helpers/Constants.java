@@ -33,6 +33,8 @@ public class Constants {
    */
   public static final double TURNING_THROTTLE = 0.5d;
 
+  public static final double TURNING_FULL = 1.0d;
+
   /**
    * SmartDashboard key for maximum robot speed.
    */

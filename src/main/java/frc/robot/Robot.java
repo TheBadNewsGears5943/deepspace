@@ -15,10 +15,10 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 public class Robot extends TimedRobot {
-  TeleopCommand teleop = new TeleopCommand();
-  IntakeCommand intake = new IntakeCommand();
-  ElevatorCommand elevator = new ElevatorCommand();
-  CompressorCommand compressorCommand = new CompressorCommand();
+  private TeleopCommand teleop = new TeleopCommand();
+  private IntakeCommand intake = new IntakeCommand();
+  private ElevatorCommand elevator = new ElevatorCommand();
+  private CompressorCommand compressorCommand = new CompressorCommand();
 
   /**
    * Code for when the robot is first being powered on goes here.
@@ -30,21 +30,22 @@ public class Robot extends TimedRobot {
     SmartDashboard.putBoolean("Gyroscope Disabled", true);
     SmartDashboard.putNumber("Power Slider", 1.0d);
 
-    PneumaticSubsystem.getInstance().compressor.setClosedLoopControl(true);
-    PneumaticSubsystem.getInstance().compressor.start();
+    var pneumatics = PneumaticSubsystem.getInstance();
+    pneumatics.compressor.setClosedLoopControl(true);
+    pneumatics.compressor.start();
 
-    PneumaticSubsystem.getInstance().leftGearBox.set(Constants.HIGH_GEAR);
-    PneumaticSubsystem.getInstance().rightGearBox.set(Constants.HIGH_GEAR);
+    pneumatics.leftGearBox.set(Constants.HIGH_GEAR);
+    pneumatics.rightGearBox.set(Constants.HIGH_GEAR);
 
-    PneumaticSubsystem.getInstance().frontLiftMechanism.set(Value.kReverse);
-    PneumaticSubsystem.getInstance().rearLiftMechanism.set(Value.kReverse);
+    pneumatics.frontLiftMechanism.set(Value.kReverse);
+    pneumatics.rearLiftMechanism.set(Value.kReverse);
 
-    PneumaticSubsystem.getInstance().panelClutch.set(Value.kReverse);
-    
+    pneumatics.panelClutch.set(Value.kReverse);
+
     SmartDashboard.putString("Current Gear",
-        (PneumaticSubsystem.getInstance().leftGearBox.get() == Constants.HIGH_GEAR) 
-        ? "High"
-        : "Low"
+        (pneumatics.leftGearBox.get() == Constants.HIGH_GEAR)
+            ? "High"
+            : "Low"
     );
 
     SmartDashboard.putBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
@@ -101,15 +102,15 @@ public class Robot extends TimedRobot {
      * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
      * pressed.
      */
-    var compressorBrownoutPoweroffConfigured = 
+    var compressorBrownoutPoweroffConfigured =
         SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
 
     // If the roboRIO is browning out, stop the compressor for six seconds
     if (
         compressorBrownoutPoweroffConfigured
-        && RobotController.isBrownedOut()
-        && compressorCommand != null 
-        && !compressorCommand.isRunning()
+            && RobotController.isBrownedOut()
+            && compressorCommand != null
+            && !compressorCommand.isRunning()
     ) {
       compressorCommand.start();
     }
