@@ -17,8 +17,8 @@ public class IntakeCommand extends Command {
   protected void execute() {
     IntakeSubsystem.getInstance().operateIntake(
         OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) != 0
-          ? -OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) * 0.9d
-          : OperatorInterface.xbox.getRawAxis(Map.INTAKE_OUT_AXIS) * 0.9d
+          ? OperatorInterface.xbox.getRawAxis(Map.INTAKE_IN_AXIS) * 0.9d
+          : -OperatorInterface.xbox.getRawAxis(Map.INTAKE_OUT_AXIS) * 0.9d
     );
   }
 
