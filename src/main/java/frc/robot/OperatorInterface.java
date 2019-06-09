@@ -6,11 +6,11 @@ import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.buttons.POVButton;
 import frc.robot.commands.misc.AdjustSpeedCommand;
+import frc.robot.commands.teleop.ReverseUsbCommand;
 import frc.robot.commands.teleop.ChangeGearCommand;
 import frc.robot.commands.teleop.FineTurningCommand;
 import frc.robot.commands.teleop.LiftCommand;
 import frc.robot.commands.teleop.PanelClutchCommand;
-import frc.robot.commands.teleop.ReverseCommand;
 import frc.robot.commands.teleop.ToggleGyroscopeCommand;
 import frc.robot.commands.teleop.VisionCommand;
 import frc.robot.helpers.Map;
@@ -110,7 +110,7 @@ public class OperatorInterface {
    * Method used to initialize the commands controlled by the joystick buttons.
    */
   public static void initialize() {
-    reverseDirection.whenPressed(new ReverseCommand());
+    reverseDirection.whenPressed(new ReverseUsbCommand());
 
     fineTurningButton.whileHeld(new FineTurningCommand());
 

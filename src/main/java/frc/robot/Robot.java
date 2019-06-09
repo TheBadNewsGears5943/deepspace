@@ -11,6 +11,7 @@ import frc.robot.commands.teleop.ElevatorCommand;
 import frc.robot.commands.teleop.IntakeCommand;
 import frc.robot.commands.teleop.TeleopCommand;
 import frc.robot.helpers.Constants;
+import frc.robot.subsystems.CameraSubsystem;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
 
@@ -25,6 +26,8 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
+    CameraSubsystem.getInstance().start();
+
     OperatorInterface.initialize();
 
     SmartDashboard.putBoolean("Gyroscope Disabled", true);
@@ -40,7 +43,8 @@ public class Robot extends TimedRobot {
     pneumatics.frontLiftMechanism.set(Value.kReverse);
     pneumatics.rearLiftMechanism.set(Value.kReverse);
 
-    pneumatics.panelClutch.set(Value.kReverse);
+    // FIXME: Tell build team to fix hatch panel mechanism to not be reversed and then revert
+    pneumatics.panelClutch.set(Value.kForward);
 
     SmartDashboard.putString("Current Gear",
         (pneumatics.inHighGear())
@@ -99,7 +103,7 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
 
     /*
-     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
+     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is
      * pressed.
      */
     var compressorBrownoutPoweroffConfigured =
