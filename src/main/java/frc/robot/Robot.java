@@ -15,6 +15,7 @@ import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 public class Robot extends TimedRobot {
+
   private TeleopCommand teleop = new TeleopCommand();
   private IntakeCommand intake = new IntakeCommand();
   private ElevatorCommand elevator = new ElevatorCommand();
@@ -40,12 +41,13 @@ public class Robot extends TimedRobot {
     pneumatics.frontLiftMechanism.set(Value.kReverse);
     pneumatics.rearLiftMechanism.set(Value.kReverse);
 
-    pneumatics.panelClutch.set(Value.kReverse);
+    pneumatics.hatchMechExtender.set(Value.kReverse);
+    pneumatics.hatchMech.set(Value.kReverse);
 
     SmartDashboard.putString("Current Gear",
-        (pneumatics.inHighGear())
-            ? "High"
-            : "Low"
+      (pneumatics.inHighGear())
+        ? "High"
+        : "Low"
     );
 
     SmartDashboard.putBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
@@ -99,18 +101,18 @@ public class Robot extends TimedRobot {
     Scheduler.getInstance().run();
 
     /*
-     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is 
+     * Get if the SmartDashboard checkbox for turning off the compressor during a brownout is
      * pressed.
      */
     var compressorBrownoutPoweroffConfigured =
-        SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
+      SmartDashboard.getBoolean(Constants.AUTO_COMPRESSOR_BROWNOUT_KEY, false);
 
     // If the roboRIO is browning out, stop the compressor for six seconds
     if (
-        compressorBrownoutPoweroffConfigured
-            && RobotController.isBrownedOut()
-            && compressorCommand != null
-            && !compressorCommand.isRunning()
+      compressorBrownoutPoweroffConfigured
+        && RobotController.isBrownedOut()
+        && compressorCommand != null
+        && !compressorCommand.isRunning()
     ) {
       compressorCommand.start();
     }

@@ -9,7 +9,12 @@ public class Map {
   /**
    * PCM CAN index, setGearBox using the Phoenix Tuner software.
    */
-  public static final int PCM_CAN_INDEX = 0;
+  public static final int PCM_CAN_PRIMARY_INDEX = 0;
+
+  /**
+   * CAN ID for the second PCM.
+   */
+  public static final int PCM_CAN_SECONDARY_INDEX = 8;
 
   /**
    * Front left motor CAN index, setGearBox using the Phoenix Tuner software.
@@ -105,14 +110,32 @@ public class Map {
   public static final int ELEVATOR_FAST_AXIS = 1;
 
   /**
-   * Button for opening the panel clutch mechanism.
+   * Button for extending the hatch panel extender.
    */
-  public static final int PANEL_CLUTCH_OPEN_BUTTON = 5;
+//  public static final int EXTEND_HATCH_MECH_EXTENDER_BUTTON = 4;
+  public static final int EXTEND_HATCH_MECH_BUTTON = 6;
+
 
   /**
-   * Button for closing the panel clutch mechanism.
+   * Button for retracting the hatch panel extender.
    */
-  public static final int PANEL_CLUTCH_CLOSE_BUTTON = 6;
+//  public static final int RETRACT_HATCH_MECH_EXTENDER_BUTTON = 1;
+  public static final int RETRACT_HATCH_MECH_BUTTON = 5;
+
+
+  /**
+   * Button for extending the hatch panel mechanism
+   */
+//  public static final int EXTEND_HATCH_MECH_BUTTON = 5;
+  public static final int EXTEND_HATCH_MECH_EXTENDER_BUTTON = 1;
+
+
+  /**
+   * Button for retracting the hatch panel mechanism
+   */
+//  public static final int RETRACT_HATCH_MECH_BUTTON = 6;
+  public static final int RETRACT_HATCH_MECH_EXTENDER_BUTTON = 4;
+
 
   /**
    * Button for switching the cameras.
@@ -184,18 +207,11 @@ public class Map {
    */
   public static final int REAR_LIFT_REVERSED = 5;
 
-  /**
-   * CAN ID for the second PCM.
-   */
-  public static final int SECOND_PCM_CAN = 8;
+  public static final int HATCH_MECH_FORWARD = 2;
 
-  /**
-   * Forward channel ID for the panel clutch mechanism.
-   */
-  public static final int PANEL_CLUTCH_EXTENDED = 0;
+  public static final int HATCH_MECH_REVERSE = 3;
 
-  /**
-   * Reverse channel ID for the panel clutch mechanism.
-   */
-  public static final int PANEL_CLUTCH_REVERSED = 1;
+  public static final int HATCH_MECH_EXTENDER_FORWARD = 0;
+
+  public static final int HATCH_MECH_EXTENDER_REVERSE = 1;
 }
