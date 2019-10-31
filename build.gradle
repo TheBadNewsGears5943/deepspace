@@ -7,7 +7,7 @@ plugins {
 def ROBOT_MAIN_CLASS = "frc.robot.Main"
 
 tasks.withType(Checkstyle) {
-    configFile = rootProject.file("config/formatting/google-checkstyle.xml")
+    configFile = rootProject.file("config/formatting/checkstyle.xml")
 }
 
 tasks.withType(Checkstyle).each { checkstyleTask ->

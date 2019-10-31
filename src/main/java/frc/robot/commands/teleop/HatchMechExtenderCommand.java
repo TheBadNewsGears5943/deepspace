@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 /**
- * Controls the solenoid that extends the actual hatch panel mechanisms
+ * Controls the solenoid that extends the actual hatch panel mechanisms.
  */
 public class HatchMechExtenderCommand extends Command {
   private boolean extend;

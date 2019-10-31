@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.subsystems.PneumaticSubsystem;
 
 /**
- * Controls the hatch panel mechanism to grab panels
+ * Controls the hatch panel mechanism to grab panels.
  */
 public class HatchMechCommand extends Command {
   private boolean extend;
