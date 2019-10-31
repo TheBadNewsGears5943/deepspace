@@ -112,28 +112,24 @@ public class Map {
   /**
    * Button for extending the hatch panel extender.
    */
-//  public static final int EXTEND_HATCH_MECH_EXTENDER_BUTTON = 4;
   public static final int EXTEND_HATCH_MECH_BUTTON = 6;
 
 
   /**
    * Button for retracting the hatch panel extender.
    */
-//  public static final int RETRACT_HATCH_MECH_EXTENDER_BUTTON = 1;
   public static final int RETRACT_HATCH_MECH_BUTTON = 5;
 
 
   /**
-   * Button for extending the hatch panel mechanism
+   * Button for extending the hatch panel mechanism.
    */
-//  public static final int EXTEND_HATCH_MECH_BUTTON = 5;
   public static final int EXTEND_HATCH_MECH_EXTENDER_BUTTON = 1;
 
 
   /**
-   * Button for retracting the hatch panel mechanism
+   * Button for retracting the hatch panel mechanism.
    */
-//  public static final int RETRACT_HATCH_MECH_BUTTON = 6;
   public static final int RETRACT_HATCH_MECH_EXTENDER_BUTTON = 4;
 
 
